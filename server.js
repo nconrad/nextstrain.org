@@ -85,6 +85,11 @@ app.route("/dist/*")
 
 /* Charon API used by Auspice.
  */
+app.route("/charon/v2/dataset/*")
+  .get();
+
+/* Preserve legacy (v1) charon API
+ */
 app.route("/charon/getAvailable")
   .all(cors({origin: 'http://localhost:8000'})) // allow cross-origin from the gatsby dev server
   .get(auspiceServerHandlers.getAvailable);
